@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xff5D9CEC),
         title: const Text(
-          'Tasks',
+          'Task',
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
