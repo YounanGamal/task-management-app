@@ -9,7 +9,7 @@ class TaskItem extends StatelessWidget {
       width: double.infinity,
       height: 90,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(15),
       ),
       padding: EdgeInsets.all(15),
@@ -29,11 +29,11 @@ class TaskItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Task Title'),
+                Text('Task Title',style: Theme.of(context).textTheme.titleMedium,),
                 SizedBox(
                   height: 8,
                 ),
-                Text('Task Title'),
+                Text('Task Title',style: Theme.of(context).textTheme.bodyMedium,),
               ],
             ),
           ),

@@ -1,0 +1,14 @@
+{
+  "app_name":"Task",
+  "title_bottom_sheet": "Add new Task",
+  "hint_task": "Enter your Task title",
+  "hint_details": "Enter your Task details",
+  "select_time": "Select Time",
+  "bottom_add_task": "Add Task",
+  "app_theme": "Theme",
+  "app_language":"Language",
+  "light" : "Light",
+  "dark" : "Dark",
+  "english" : "English",
+  "arabic" : "Arabic"
+}

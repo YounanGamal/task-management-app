@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_management_app/UI/Home/menus/menus_tab_widget.dart';
 import 'package:task_management_app/UI/Home/settings/settings_tab_widget.dart';
 import 'package:task_management_app/UI/Home/task_bottom_sheet.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home-Screen';
@@ -25,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff5D9CEC),
-        title: const Text(
-          'Task',
+        title:  Text(
+         AppLocalizations.of(context)!.app_name,
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
@@ -48,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
+        color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         notchMargin: 5,
         shape: CircularNotchedRectangle(),
         child: BottomNavigationBar(
