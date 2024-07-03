@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management_app/UI/Home/settings/Theme/theme_bottom_sheet.dart';
 import 'package:task_management_app/UI/Home/settings/local/language_bottom_sheet.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsTabWidget extends StatefulWidget {
   const SettingsTabWidget({super.key});
@@ -19,7 +20,7 @@ class _SettingsTabWidgetState extends State<SettingsTabWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Theme',
+            AppLocalizations.of(context)!.app_theme,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -38,11 +39,13 @@ class _SettingsTabWidgetState extends State<SettingsTabWidget> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.white,
-                border:
-                    Border.all(color: Theme.of(context).primaryColor, width: 1),
+                border: Border.all(
+                  color: Theme.of(context).primaryColor,
+                  width: 1,
+                ),
               ),
               child: Text(
-                'Light',
+                AppLocalizations.of(context)!.light,
                 style: TextStyle(
                   fontSize: 14,
                   color: Color(0xff5D9CEC),
@@ -54,7 +57,7 @@ class _SettingsTabWidgetState extends State<SettingsTabWidget> {
             height: 15,
           ),
           Text(
-            'Language',
+            AppLocalizations.of(context)!.app_language,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -77,7 +80,7 @@ class _SettingsTabWidgetState extends State<SettingsTabWidget> {
                     Border.all(color: Theme.of(context).primaryColor, width: 1),
               ),
               child: Text(
-                'English',
+                AppLocalizations.of(context)!.english,
                 style: TextStyle(
                   fontSize: 14,
                   color: Color(0xff5D9CEC),

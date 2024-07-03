@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Components/custom_bottom.dart';
 import '../Components/custom_text_form_field.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class TaskBottomSheet extends StatelessWidget {
   const TaskBottomSheet({super.key});
 
@@ -12,14 +12,14 @@ class TaskBottomSheet extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Add New Task',
+            AppLocalizations.of(context)!.title_bottom_sheet,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(
             height: 20,
           ),
           CustomTextFormField(
-            labelText: 'Enter your task title',
+            labelText: AppLocalizations.of(context)!.hint_task,
             filled: false,
             colorBorder: Theme.of(context).hintColor,
             colorTextStyle: Theme.of(context).hintColor,
@@ -28,7 +28,7 @@ class TaskBottomSheet extends StatelessWidget {
             height: 15,
           ),
           CustomTextFormField(
-            labelText: 'Enter your task details',
+            labelText: AppLocalizations.of(context)!.hint_details,
             filled: false,
             colorBorder: Theme.of(context).hintColor,
             colorTextStyle: Theme.of(context).hintColor,
@@ -41,7 +41,7 @@ class TaskBottomSheet extends StatelessWidget {
             margin: EdgeInsets.only(left: 10),
             alignment: Alignment.topLeft,
             child: Text(
-              'Select time',
+              AppLocalizations.of(context)!.select_time,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
@@ -60,7 +60,7 @@ class TaskBottomSheet extends StatelessWidget {
             height: 20,
           ),
           CustomBottom(
-            bottomName: 'Add Task',
+            bottomName: AppLocalizations.of(context)!.title_bottom_sheet,
             onButtonClickedCallback: () {},
           ),
         ],

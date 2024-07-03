@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_management_app/Providers/settings_provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ThemeBottomSheet extends StatefulWidget {
   const ThemeBottomSheet({super.key});
 
@@ -24,8 +24,8 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
               provider.changeApplicationTheme(ThemeMode.light);
             },
             child: provider.currentTheme == ThemeMode.light
-                ? getSelectedTheme('Light')
-                : getUnSelectedTheme('Light'),
+                ? getSelectedTheme(AppLocalizations.of(context)!.light)
+                : getUnSelectedTheme(AppLocalizations.of(context)!.light),
           ),
           const SizedBox(
             height: 10,
@@ -35,8 +35,8 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
               provider.changeApplicationTheme(ThemeMode.dark);
             },
             child: provider.currentTheme == ThemeMode.dark
-                ? getSelectedTheme('Dark')
-                : getUnSelectedTheme('Dark'),
+                ? getSelectedTheme(AppLocalizations.of(context)!.dark)
+                : getUnSelectedTheme(AppLocalizations.of(context)!.dark),
           ),
         ],
       ),

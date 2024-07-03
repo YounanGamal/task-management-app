@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_management_app/Providers/settings_provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class LanguageBottomSheet extends StatefulWidget {
   const LanguageBottomSheet({super.key});
 
@@ -13,7 +13,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   @override
   Widget build(BuildContext context) {
     SettingsProvider provider = Provider.of<SettingsProvider>(context);
-    return  Container(
+    return Container(
       padding: EdgeInsets.all(15),
       alignment: Alignment.topLeft,
       child: Column(
@@ -21,29 +21,29 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
         children: [
           InkWell(
             onTap: () {
-              provider.changeApplicationTheme(ThemeMode.light);
+              provider.changeApplication(Locale('en'));
             },
-            child: provider.currentTheme == ThemeMode.light
-                ? getSelectedLanguage('English')
-                : getUnSelectedLanguage('English'),
+            child: provider.currentLocale == Locale('en')
+                ? getSelectedLanguage(AppLocalizations.of(context)!.english)
+                : getUnSelectedLanguage(AppLocalizations.of(context)!.english),
           ),
           const SizedBox(
             height: 10,
           ),
           InkWell(
             onTap: () {
-              provider.changeApplicationTheme(ThemeMode.dark);
+              provider.changeApplication(Locale('ar'));
             },
-            child: provider.currentTheme == ThemeMode.dark
-                ? getSelectedLanguage('Arabic')
-                : getUnSelectedLanguage('Arabic'),
+            child: provider.currentLocale == Locale('ar')
+                ? getSelectedLanguage(AppLocalizations.of(context)!.arabic)
+                : getUnSelectedLanguage(AppLocalizations.of(context)!.arabic),
           ),
         ],
       ),
     );
   }
 
-  getSelectedLanguage(String selectedLanguage) {
+  Widget getSelectedLanguage(String selectedLanguage) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -63,7 +63,7 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
     );
   }
 
-  getUnSelectedLanguage(String unSelectedLanguage) {
+  Widget getUnSelectedLanguage(String unSelectedLanguage) {
     return Text(
       unSelectedLanguage,
       style: TextStyle(

@@ -26,6 +26,11 @@ class Mytheme {
         color: Colors.black,
         fontSize: 18,
       ),
+      bodyMedium: TextStyle(
+        // fontWeight: FontWeight.bold,
+        color: Colors.black,
+        fontSize: 14,
+      ),
     ),
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
@@ -59,6 +64,11 @@ class Mytheme {
         fontWeight: FontWeight.bold,
         color: Colors.white,
         fontSize: 18,
+      ),
+      bodyMedium: TextStyle(
+        // fontWeight: FontWeight.bold,
+        color: Colors.white,
+        fontSize: 14,
       ),
     ),
     appBarTheme: const AppBarTheme(

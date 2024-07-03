@@ -1,0 +1,14 @@
+{
+  "app_name":"مهمة",
+  "title_bottom_sheet": "أضف مهمة جديدة",
+  "hint_task": "أدخل عنوان مهمتك",
+  "hint_details": "أدخل تفاصيل مهمتك",
+  "select_time": "اختر الوقت",
+  "bottom_add_task": "إضافة مهمة ",
+  "app_theme": "السمه",
+  "app_language":"اللغة",
+  "light" : "ضوء",
+  "dark" : "مظلم",
+  "english" : "انجليزي",
+  "arabic" : "عربي"
+}
