@@ -8,6 +8,7 @@ class SingUpScreenWidget extends StatelessWidget {
   static const String routeName = 'Sing-Up';
 
   SingUpScreenWidget({super.key});
+
   TextEditingController fullNameController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -15,6 +16,7 @@ class SingUpScreenWidget extends StatelessWidget {
   TextEditingController confirmationPasswordController =
       TextEditingController();
   var formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -140,11 +142,15 @@ class SingUpScreenWidget extends StatelessWidget {
                         const SizedBox(
                           height: 30,
                         ),
-                        CustomBottom
-                          (
-                          bottomName: 'Sing Up',
-                          onButtonClickedCallback: singUp,
-                        ),
+                        // CustomBottom
+                        //   (
+                        //   bottomName: 'Sing Up',
+                        //   onButtonClickedCallback: singUp,
+                        // ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Sing Up'),
+                        )
                       ],
                     ),
                   ),
@@ -157,9 +163,13 @@ class SingUpScreenWidget extends StatelessWidget {
     );
   }
 
-  void singUp() {
+  void singUp() async{
     if (!(formKey.currentState!.validate())) {
       return;
+      // final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      //   email: emailAddress,
+      //   password: password,
+      // );
     }
   }
 }
