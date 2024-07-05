@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management_app/UI/Components/custom_bottom.dart';
 import 'package:task_management_app/UI/Components/custom_text_form_field.dart';
@@ -148,7 +149,9 @@ class SingUpScreenWidget extends StatelessWidget {
                         //   onButtonClickedCallback: singUp,
                         // ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            singUp();
+                          },
                           child: Text('Sing Up'),
                         )
                       ],
@@ -163,13 +166,25 @@ class SingUpScreenWidget extends StatelessWidget {
     );
   }
 
-  void singUp() async{
+  void singUp() async {
     if (!(formKey.currentState!.validate())) {
       return;
-      // final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      //   email: emailAddress,
-      //   password: password,
-      // );
+    }
+    try {
+      UserCredential result =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      print(result.user?.uid);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e.toString());
     }
   }
 }

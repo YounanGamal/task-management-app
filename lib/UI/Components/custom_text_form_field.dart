@@ -12,7 +12,7 @@ class CustomTextFormField extends StatelessWidget {
   bool filled;
   Color colorTextStyle;
   Color colorBorder;
-  int? maxLines;
+  int maxLines;
   CustomTextFormField({
     super.key,
     required this.labelText,
@@ -23,7 +23,7 @@ class CustomTextFormField extends StatelessWidget {
     this.filled = true,
     this.colorTextStyle = Colors.white,
     this.colorBorder = Colors.white,
-    this.maxLines,
+    this.maxLines=1,
   });
   @override
   Widget build(BuildContext context) {

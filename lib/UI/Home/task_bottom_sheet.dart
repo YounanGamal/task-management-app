@@ -60,7 +60,7 @@ class TaskBottomSheet extends StatelessWidget {
             height: 20,
           ),
           CustomBottom(
-            bottomName: AppLocalizations.of(context)!.title_bottom_sheet,
+            bottomName: AppLocalizations.of(context)!.bottom_add_task,
             onButtonClickedCallback: () {},
           ),
         ],

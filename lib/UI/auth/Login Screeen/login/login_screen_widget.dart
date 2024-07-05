@@ -1,14 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management_app/UI/Components/custom_bottom.dart';
 import 'package:task_management_app/UI/Components/custom_text_form_field.dart';
+import 'package:task_management_app/UI/Home/home_screen.dart';
 import 'package:task_management_app/Utils/email_validation.dart';
 
-class LoginScreenWidget extends StatelessWidget {
+class LoginScreenWidget extends StatefulWidget {
   LoginScreenWidget({super.key});
   static const String routeName = 'Login-Screen-widget';
-  TextEditingController emailcontroller = TextEditingController();
-  TextEditingController passwordcontroller = TextEditingController();
+
+  @override
+  State<LoginScreenWidget> createState() => _LoginScreenWidgetState();
+}
+
+class _LoginScreenWidgetState extends State<LoginScreenWidget> {
+  TextEditingController emailController = TextEditingController();
+
+  TextEditingController passwordController = TextEditingController();
+
   var formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,7 +64,7 @@ class LoginScreenWidget extends StatelessWidget {
                           height: 400,
                         ),
                         CustomTextFormField(
-                          controller: emailcontroller,
+                          controller: emailController,
                           validator: (input) {
                             if (input == null || input.trim().isEmpty) {
                               return 'Please enter e-mail';
@@ -69,7 +80,7 @@ class LoginScreenWidget extends StatelessWidget {
                           height: 20,
                         ),
                         CustomTextFormField(
-                          controller: passwordcontroller,
+                          controller: passwordController,
                           validator: (input) {
                             if (input == null || input.trim().isEmpty) {
                               return 'Please enter e-mail';
@@ -98,9 +109,22 @@ class LoginScreenWidget extends StatelessWidget {
     );
   }
 
-  logIn() {
+  logIn() async{
     if (!(formKey.currentState!.validate())) {
       return;
+    }
+    try {
+      UserCredential credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text
+      );
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
     }
   }
 }

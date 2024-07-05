@@ -48,7 +48,7 @@ class TaskManagement extends StatelessWidget {
         LoginScreenWidget.routeName: (context) => LoginScreenWidget(),
         HomeScreen.routeName: (context) => HomeScreen(),
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: LoginScreen.routeName,
     );
   }
 }
